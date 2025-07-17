@@ -50,4 +50,5 @@
 - НЕ используется физический движок Unity и коллайдеры, что уменьшает размер билда и производительность (для такого рода одномерных платформеров)
 
 [WebGL билд](https://algiskhasanov.itch.io/platformer-ecs)
-[PC билд в архиве](https://github.com/algiskh/Platformer_ECS/blob/main/)
+
+[PC билд в архиве](https://github.com/algiskh/Platformer_ECS/blob/main/PCBuild.zip)
