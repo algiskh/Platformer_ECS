@@ -1,5 +1,7 @@
 # Одномерный платформер на ECS
+
 ![GamePlay](1.gif)
+
 Одномерный платформер на **Leopotam.EcsLite** (ECS для Unity).  
 Вся игровая логика реализована отдельными системами ECS, каждая отвечает только за свою зону ответственности.
 
@@ -48,6 +50,6 @@
 - НЕ использовались дополнительные фреймворки
 - НЕ используется физический движок Unity и коллайдеры, что уменьшает размер билда и производительность (для такого рода одномерных платформеров)
 <br>
- [WebGL билд на itchi.io](https://algiskhasanov.itch.io/platformer-ecs)
-<br>
- [PC билд в архиве](https://github.com/algiskh/Platformer_ECS/PCBuild.zip)
+[WebGL билд](https://algiskhasanov.itch.io/platformer-ecs)
+[ PC билд в архиве
+](https://github.com/algiskh/Platformer_ECS/blob/main/)
