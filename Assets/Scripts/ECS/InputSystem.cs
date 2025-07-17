@@ -17,7 +17,18 @@ namespace ECS
 		public void Run(IEcsSystems systems)
 		{
 			var world = systems.GetWorld();
+
 			ref var input = ref world.GetAsSingleton<PlayerInputComponent>();
+
+			var endGameFilter = world.Filter<EndGameComponent>()
+				.End();
+
+			if (endGameFilter.GetEntitiesCount() > 0)
+			{
+				input.Move = Vector2.zero;
+				return;
+			}
+
 			var borderPool = world.GetPool<BorderComponent>();
 			var collisionPool = world.GetPool<CollisionComponent>();
 			var player = world.GetAsSingleton<PlayerComponent>();
@@ -28,7 +39,7 @@ namespace ECS
 			input.Move = new Vector2(Input.GetAxisRaw("Horizontal"), 0f);
 			input.IsFiring = Input.GetButton("Fire1");
 
-
+			#region CheckingBorders
 			var borderFilter = world.Filter<BorderComponent>().Inc<CollisionComponent>().End();
 			foreach (var borderEntity in borderFilter)
 			{
@@ -44,6 +55,7 @@ namespace ECS
 				if (playerPos.x > borderPos.x && input.Move.x < 0)
 					input.Move.x = 0;
 			}
+			#endregion
 		}
 	}
 }

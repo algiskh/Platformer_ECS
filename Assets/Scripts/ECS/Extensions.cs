@@ -1,5 +1,4 @@
 using Leopotam.EcsLite;
-using System;
 
 namespace ECS
 {

@@ -197,3 +197,8 @@ public struct RequestEffectComponent
 	public string EffectId;
 	public Vector2 Position;
 }
+
+public struct EndGameComponent
+{
+
+}

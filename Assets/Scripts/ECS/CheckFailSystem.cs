@@ -1,5 +1,4 @@
 ﻿using Leopotam.EcsLite;
-using Mono.Cecil.Cil;
 using UnityEngine;
 
 namespace ECS
@@ -10,9 +9,17 @@ namespace ECS
 		{
 			var world = systems.GetWorld();
 
+			var endGameFilter = world.Filter<EndGameComponent>()
+				.End();
+			if (endGameFilter.GetEntitiesCount() > 0)
+			{
+				return;
+			}
+
 			var playerPool = world.GetPool<PlayerComponent>();
 			var muzzlePool = world.GetPool<MuzzleComponent>();
 			var healthPool = world.GetPool<HealthComponent>();
+
 
 			var filter = world.Filter<PlayerComponent>()
 				.Inc<MuzzleComponent>()
@@ -29,6 +36,7 @@ namespace ECS
 					ref var requestOpenWindow = ref world.CreateSimpleEntity<RequestOpenWindowComponent>();
 					requestOpenWindow.WindowType = WindowType.FailWindow;
 					StopAllMoves(world, player);
+					var endGame = world.CreateSimpleEntity<EndGameComponent>();
 				}
 			}
 		}

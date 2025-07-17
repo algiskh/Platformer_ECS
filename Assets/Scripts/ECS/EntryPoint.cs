@@ -1,6 +1,5 @@
 using ECS;
 using Leopotam.EcsLite;
-using System;
 using System.Collections.Generic;
 using UnityEngine;
 
